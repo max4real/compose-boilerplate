@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Per-environment config — copy env.properties.example to env.properties and fill in real values
+env.properties
+key.properties
+*.jks
+*.keystore
+

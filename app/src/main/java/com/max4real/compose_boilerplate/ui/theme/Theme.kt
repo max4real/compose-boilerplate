@@ -1,6 +1,5 @@
 package com.max4real.compose_boilerplate.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -9,35 +8,51 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = CustomColor.White,
+    onPrimary = CustomColor.Black,
+
+    background = CustomColor.Black,
+    onBackground = CustomColor.White,
+
+    surface = CustomColor.DarkGray,
+    onSurface = CustomColor.White,
+
+    surfaceVariant = Color(0xFF3A3A3A),
+    onSurfaceVariant = CustomColor.White80,
+
+    outline = CustomColor.White20,
+
+    secondary = CustomColor.TextGray,
+    onSecondary = CustomColor.Black
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = CustomColor.BrandColor,
+    onPrimary = CustomColor.White,
 
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    background = CustomColor.White,
+    onBackground = CustomColor.BrandColor,
+
+    surface = Color(0xFFF7F7F7),
+    onSurface = CustomColor.BrandColor,
+
+    surfaceVariant = Color(0xFFEFEFEF),
+    onSurfaceVariant = CustomColor.TextGray,
+
+    outline = Color(0xFFE0E0E0),
+
+    secondary = CustomColor.TextGray,
+    onSecondary = CustomColor.White
 )
 
 @Composable
 fun ComposeboilerplateTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false, // important for custom colors
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
